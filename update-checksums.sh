@@ -23,7 +23,7 @@ fi
 TMP_DIR="/tmp/$(basename $0)"
 mkdir -p $TMP_DIR
 TMP_PKGBUILD="$TMP_DIR/PKGBUILD.geninteg"
-SCRIPT_NAME="$TMP_DIR/$0.sed"
+SED_SCRIPT_NAME="$TMP_DIR/$0.sed"
 
 export SRCDEST="${TMP_DIR}/src"
 mkdir -p "$SRCDEST"
@@ -49,11 +49,11 @@ for i in ${!oldsums[@]}; do
         echo 'SKIP > SKIP'
     else
         echo "${oldsums[i]} > ${newsums[i]}"
-        echo "s/${oldsums[i]}/${newsums[i]}/" >> $SCRIPT_NAME
+        echo "s/${oldsums[i]}/${newsums[i]}/" >> $SED_SCRIPT_NAME
     fi
 done
 
-sed -i.bak -f $SCRIPT_NAME PKGBUILD
+sed -i.bak -f $SED_SCRIPT_NAME PKGBUILD
 
 echo "Verifying correctness..."
 makepkg --verifysource
