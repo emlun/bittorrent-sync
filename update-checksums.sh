@@ -23,6 +23,7 @@ fi
 TMP_DIR="/tmp/$(basename $0)"
 mkdir -p $TMP_DIR
 TMP_PKGBUILD="$TMP_DIR/PKGBUILD.geninteg"
+SCRIPT_NAME="$TMP_DIR/$0.sed"
 
 export SRCDEST="${TMP_DIR}/src"
 mkdir -p "$SRCDEST"
@@ -43,7 +44,6 @@ done
 
 # Update the checksums in PKGBUILD
 echo "Updating checksums..."
-SCRIPT_NAME="$TMP_DIR/$0.sed"
 for i in ${!oldsums[@]}; do
     if [ "${oldsums[i]}" == 'SKIP' ]; then
         echo 'SKIP > SKIP'
