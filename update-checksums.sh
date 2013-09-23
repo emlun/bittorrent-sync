@@ -68,7 +68,7 @@ done
 sed -i.bak -f $SED_SCRIPT_NAME PKGBUILD
 
 echo "Verifying correctness..."
-makepkg --verifysource
+makepkg --verifysource -f
 
 if $REMOVE_TMP_DIR; then
     echo "Removing tmp dir $TMP_DIR"
