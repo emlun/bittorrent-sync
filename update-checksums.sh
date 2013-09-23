@@ -20,15 +20,20 @@ if [[ $0 == '/bin/bash' ]]; then
     return 1
 fi
 
-grep -vE "^[[:space:]]*(if|elif|else|fi)" PKGBUILD > PKGBUILD.geninteg
+TMP_DIR="/tmp/$(basename $0)"
+mkdir -p $TMP_DIR
+TMP_PKGBUILD="$TMP_DIR/PKGBUILD.geninteg"
+
+export SRCDEST="${TMP_DIR}/src"
+mkdir -p "$SRCDEST"
+
+grep -vE "^[[:space:]]*(if|elif|else|fi)" PKGBUILD > $TMP_PKGBUILD
 
 # Compute the new checksums
 newsums=( )
-for l in $(makepkg -g -p PKGBUILD.geninteg | grep -oE "[0-9a-f]{32,}"); do
+for l in $(makepkg -g -p $TMP_PKGBUILD | grep -oE "[0-9a-f]{32,}"); do
     newsums+=("$l")
 done
-
-rm PKGBUILD.geninteg
 
 # Find the old checksums
 oldsums=( )
@@ -38,7 +43,7 @@ done
 
 # Update the checksums in PKGBUILD
 echo "Updating checksums..."
-SCRIPT_NAME=$0.sed
+SCRIPT_NAME="$TMP_DIR/$0.sed"
 for i in ${!oldsums[@]}; do
     if [ "${oldsums[i]}" == 'SKIP' ]; then
         echo 'SKIP > SKIP'
@@ -48,7 +53,7 @@ for i in ${!oldsums[@]}; do
     fi
 done
 
-sed -i.bak -f $SCRIPT_NAME PKGBUILD && rm $SCRIPT_NAME
+sed -i.bak -f $SCRIPT_NAME PKGBUILD
 
 echo "Verifying correctness..."
 makepkg --verifysource
