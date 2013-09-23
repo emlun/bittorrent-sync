@@ -13,6 +13,10 @@
 # Note that since this script works by replacing checksum strings with new
 # values, it only updates existing checksums. If a source file has no checksum
 # specified, it will not be given one by this script.
+#
+# If the -c or --cleanup option is given, the script will remove the tmp
+# directory used to store intermediate files such as the hacked PKGBUILD and
+# the sed script. This directory is located under /tmp.
 
 if [[ $0 == '/bin/bash' ]]; then
     echo "It looks like you're sourcing this script."
@@ -24,6 +28,14 @@ TMP_DIR="/tmp/$(basename $0)"
 mkdir -p $TMP_DIR
 TMP_PKGBUILD="$TMP_DIR/PKGBUILD.geninteg"
 SED_SCRIPT_NAME="$TMP_DIR/$0.sed"
+REMOVE_TMP_DIR=false
+for arg in $@; do
+    case $arg in
+        -c|--cleanup)
+            REMOVE_TMP_DIR=true
+            ;;
+    esac
+done
 
 export SRCDEST="${TMP_DIR}/src"
 mkdir -p "$SRCDEST"
@@ -57,3 +69,10 @@ sed -i.bak -f $SED_SCRIPT_NAME PKGBUILD
 
 echo "Verifying correctness..."
 makepkg --verifysource
+
+if $REMOVE_TMP_DIR; then
+    echo "Removing tmp dir $TMP_DIR"
+    rm -r $TMP_DIR
+else
+    echo "Not removing tmp dir $TMP_DIR"
+fi
