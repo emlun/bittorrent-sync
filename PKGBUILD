@@ -1,4 +1,4 @@
-# Maintainer: Emil Lundberg <lundberg.emil@gmail.com> (AUR: Lorde; Github: emlun)
+# Maintainer: Emil Lundberg <lundberg.emil@gmail.com> (AUR: Lorde; GitHub: emlun)
 # Contrib Repo: https://github.com/emlun/bittorrent-sync
 #
 # Contributor: Dalton Miller
