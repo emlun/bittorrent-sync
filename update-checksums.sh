@@ -76,3 +76,5 @@ if $REMOVE_TMP_DIR; then
 else
     echo "Not removing tmp dir $TMP_DIR"
 fi
+
+# vim: ts=4:sw=4:et

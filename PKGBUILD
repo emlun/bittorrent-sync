@@ -68,3 +68,5 @@ package() {
     install -D -m 644 btsync@.service "${pkgdir}/usr/lib/systemd/system/btsync@.service"
 
 }
+
+# vim: ts=4:sw=4:et
