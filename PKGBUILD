@@ -12,6 +12,7 @@ pkgdesc="BitTorrent Sync - automatically sync files via secure, distributed tech
 arch=('i686' 'x86_64' 'arm' 'armv6h' 'armv7h')
 url="http://labs.bittorrent.com/experiments/sync.html"
 license=('custom:bittorrent')
+provides=('btsync')
 backup=("etc/btsync.conf")
 install="${pkgname}.install"
 source=("${pkgname}.install"
