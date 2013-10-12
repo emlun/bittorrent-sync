@@ -3,8 +3,7 @@
 #
 # This script runs 'makepkg -g' on a copy of PKGBUILD where all if/elif/else/fi
 # statements have been removed, and then uses sed to replace the old checksums
-# in PKGBUILD with the new ones. The original PKGBUILD is backed up to
-# PKGBUILD.bak.
+# in PKGBUILD with the new ones.
 #
 # The script assumes that all checksums in the original PKGBUILD are strings of
 # 32 or more hexadecimal characters ([0-9a-f], greedy), and that all such
@@ -65,7 +64,7 @@ for i in ${!oldsums[@]}; do
     fi
 done
 
-sed -i.bak -f $SED_SCRIPT_NAME PKGBUILD
+sed -i -f $SED_SCRIPT_NAME PKGBUILD
 
 echo "Verifying correctness..."
 makepkg --verifysource -f
