@@ -23,6 +23,8 @@
 #     was successfully created, and the script failed to create the
 #     file.
 
+logger "$0 starting"
+
 configPath=~/.config/btsync/btsync.conf
 
 # Parse arguments
@@ -34,20 +36,22 @@ else
 fi
 
 # Create config file if necessary
-if [[ ! -f $configPath ]]; then
-    logger "Config file does not exist - will create it"
+if [[ -f $configPath ]]; then
+    logger "Config file $configPath already exists - nothing to do!"
+    exit 0
+else
+    logger "File $configPath does not exist - will create config file at this location"
 
     if mkdir -p $(dirname $configPath); then
         if /usr/share/bittorrent-sync/btsync-makeconfig.sh > $configPath; then
-            logger "Config successfully created at $configPath"
+            logger "Config file successfully created at $configPath!"
+            exit 0
         else
-            logger "Could not create config at $configPath -
-exiting"
+            logger "Could not create config at $configPath - exiting"
             exit 2
         fi
     else
-        logger "Could not create directory $(dirname $configPath)
-- exiting"
+        logger "Could not create directory $(dirname $configPath) - exiting"
         exit 1
     fi
 fi
