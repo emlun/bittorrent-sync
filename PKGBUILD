@@ -20,7 +20,7 @@ source=("${pkgname}.install"
     "btsync@.service"
     "btsync-autoconfig@.service"
     "btsync-makeconfig.sh"
-    "btsync-wrapper.sh"
+    "btsync-autoconfig.sh"
     "btsync.conf.doc"
     "terms-of-use.html::http://www.bittorrent.com/legal/terms-of-use"
     "privacy-policy.html::http://www.bittorrent.com/legal/privacy"
@@ -65,7 +65,6 @@ package() {
     install -D -m 755 btsync-makeconfig.sh "${pkgdir}/usr/share/${pkgname}/btsync-makeconfig.sh"
 
     install -D -m 755 btsync "${pkgdir}/usr/bin/btsync"
-    install -D -m 755 btsync-wrapper.sh "${pkgdir}/usr/bin/btsync-wrapper"
 
     install -D -m 644 btsync.service "${pkgdir}/usr/lib/systemd/system/btsync.service"
     install -D -m 644 btsync@.service "${pkgdir}/usr/lib/systemd/system/btsync@.service"
