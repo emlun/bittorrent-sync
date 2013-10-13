@@ -5,10 +5,8 @@
 #
 # This script will create a default BitTorrent Sync configuration file
 # at $configPath, if it does not already exist. $configPath is the value
-# of the --config option if it is given, and
-# ~/.config/btsync/btsync.conf if it is not given. If the --config
-# argument appears but is not followed by another argument, then the
-# script behaves as if the --config option is not given.
+# of the first positional parameter if it exists, and
+# ~/.config/btsync/btsync.conf if it does not exist.
 #
 # The script /usr/share/bittorrent-sync/btsync-makeconfig.sh will be
 # used to create the config file. No arguments will be given to the
@@ -17,38 +15,23 @@
 # If creation of the config file fails, the script exits with nonzero
 # exit status.
 #
-# If creation of the config file fails, the script exits immediately
-# with nonzero exit code, and does not run the btsync executable.
-#
-# Exit codes:
+# Exit status codes:
 #   0 The script was executed successfully.
 #   1 The config file did not exist and the script failed to create its
-#     directory
-#   2 The config file did not exist, its directory did exist, and the
-#     script failed to create the file.
-#
+#     parent directory
+#   2 The config file did not exist, its parent directory did exist or
+#     was successfully created, and the script failed to create the
+#     file.
 
-configArgumentAppears=false
 configPath=~/.config/btsync/btsync.conf
 
 # Parse arguments
-previous=''
-for arg in $@; do
-    if [[ $previous == '--config' ]]; then
-        configPath=$arg
-        configArgumentAppears=true
-        break
-    fi
-    previous=$arg
-done
-
-if [[ $configArgumentAppears == true ]]; then
-    logger " --config option is given"
+if [[ $# > 0 ]]; then
+    configPath=$1
+    logger "Using config path $configPath given as positional parameter"
 else
-    logger " --config option is not given - using default"
+    logger "Using default config path $configPath"
 fi
-
-logger "Using config file path: $configPath"
 
 # Create config file if necessary
 if [[ ! -f $configPath ]]; then
