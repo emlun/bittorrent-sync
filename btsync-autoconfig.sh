@@ -43,7 +43,7 @@ else
     logger "File $configPath does not exist - will create config file at this location"
 
     if mkdir -p $(dirname $configPath); then
-        if /usr/share/bittorrent-sync/btsync-makeconfig.sh > $configPath; then
+        if /bin/bash /usr/share/bittorrent-sync/btsync-makeconfig.sh > $configPath; then
             logger "Config file successfully created at $configPath!"
             exit 0
         else

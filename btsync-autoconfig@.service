@@ -5,7 +5,7 @@ Before=btsync@.service
 [Service]
 User=%i
 Type=oneshot
-ExecStart=/usr/share/bittorrent-sync/btsync-autoconfig.sh
+ExecStart=/bin/bash /usr/share/bittorrent-sync/btsync-autoconfig.sh
 
 [Install]
 WantedBy=btsync@.service
