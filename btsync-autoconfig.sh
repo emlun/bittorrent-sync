@@ -1,7 +1,7 @@
 #!/bin/bash
 # Author: Emil Lundberg <lundberg.emil@gmail.com>
 #
-# Wraps the btsync executable and creates config file if necessary.
+# Checks if the named config file exists, and creates it if necessary.
 #
 # This script will create a default BitTorrent Sync configuration file
 # at $configPath, if it does not already exist. $configPath is the value
@@ -14,10 +14,8 @@
 # used to create the config file. No arguments will be given to the
 # btsync-makeconfig.sh script.
 #
-# After and creating a config file as necessary, the script runs the
-# /usr/share/bittorrent-sync/btsync executable with all arguments
-# preserved. If the --config option is not given, then
-# "--config ~/.config/btsync/btsync.conf" is appended to the arguments.
+# If creation of the config file fails, the script exits with nonzero
+# exit status.
 #
 # If creation of the config file fails, the script exits immediately
 # with nonzero exit code, and does not run the btsync executable.
@@ -69,15 +67,6 @@ exiting"
 - exiting"
         exit 1
     fi
-else
-    logger "Config file already exists"
-fi
-
-# Execute the btsync executable
-if [[ $configArgumentAppears == true ]]; then
-    exec /usr/bin/btsync $@
-else
-    exec /usr/bin/btsync $@ --config $configPath
 fi
 
 # vim: ts=4:sw=4:et
