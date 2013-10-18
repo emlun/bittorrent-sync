@@ -18,17 +18,19 @@ install="${pkgname}.install"
 source=("${pkgname}.install"
     "btsync.service"
     "btsync@.service"
+    "btsync-autoconfig@.service"
     "btsync-makeconfig.sh"
-    "btsync-wrapper.sh"
+    "btsync-autoconfig.sh"
     "btsync.conf.doc"
     "terms-of-use.html::http://www.bittorrent.com/legal/terms-of-use"
     "privacy-policy.html::http://www.bittorrent.com/legal/privacy"
     )
 sha256sums=('0403721e2757f44bc6ca660d95d14d4bc1c99ffad3a0fa65ac8d0ef26011c3fa'
     'c2207bd8bf6c24242d41e55b62d31cb32d764e07e71930a5a10bb4181299dfa4'
-    '3d7d58815921c65e3d36beb739e5aaef513945ee713d3f4629e29d3af798efd5'
+    '7420b95e0bcd8ab45be11c89a0c11e0e6c8cb4e451dd98c08eb5933fb58e7303'
+    '1aa6edf9f36e39e9ab0f274be5fdb842e7624fce1bf9659a28153565b0278e09'
     '6e3d9a4260824fa8077ff8fdbc4ae61f53fa702a08735018286cb52bcea49824'
-    '381c1a9f125f906d9f779b8354c33ec49fc07671547425026ff4b8d9d72fee0f'
+    '667607ed699f6ed7868214717b92d2f0bf10d664cebd3568b491b6d4eff7d9ad'
     'de4f2a124d56ddbaec23535a250dbe9001606f47b74f3c3c97056107b21c7f6e'
     'SKIP'
     'SKIP'
@@ -47,8 +49,7 @@ fi
 
 build() {
     cd "${srcdir}"
-    PATH="${srcdir}:${PATH}"
-    ./btsync-makeconfig.sh --storage-path /var/lib/btsync --login admin --device-name $HOSTNAME > btsync.conf
+    ./btsync --dump-sample-config | sed 's:/home/user/\.sync:/var/lib/btsync:g' > btsync.conf
 }
 
 package() {
@@ -59,14 +60,17 @@ package() {
     install -D -m 644 privacy-policy.html "${pkgdir}/usr/share/licenses/${pkgname}/privacy-policy.html"
 
     install -D -m 644 btsync.conf "${pkgdir}/etc/btsync.conf"
-    install -D -m 644 btsync.conf.doc "${pkgdir}/usr/share/${pkgname}/btsync.conf.doc"
-    install -D -m 755 btsync-makeconfig.sh "${pkgdir}/usr/share/${pkgname}/btsync-makeconfig.sh"
 
     install -D -m 755 btsync "${pkgdir}/usr/bin/btsync"
-    install -D -m 755 btsync-wrapper.sh "${pkgdir}/usr/bin/btsync-wrapper"
 
     install -D -m 644 btsync.service "${pkgdir}/usr/lib/systemd/system/btsync.service"
     install -D -m 644 btsync@.service "${pkgdir}/usr/lib/systemd/system/btsync@.service"
+
+    # autoconfig
+    install -D -m 644 btsync.conf.doc "${pkgdir}/usr/share/${pkgname}/btsync.conf.doc"
+    install -D -m 755 btsync-makeconfig.sh "${pkgdir}/usr/share/${pkgname}/btsync-makeconfig.sh"
+    install -D -m 644 btsync-autoconfig@.service "${pkgdir}/usr/lib/systemd/system/btsync-autoconfig@.service"
+    install -D -m 755 btsync-autoconfig.sh "${pkgdir}/usr/share/${pkgname}/btsync-autoconfig.sh"
 
 }
 
