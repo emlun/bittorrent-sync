@@ -65,16 +65,16 @@ for i in ${!oldsums[@]}; do
     fi
 done
 
-sed -i -f $SED_SCRIPT_NAME PKGBUILD
+if sed -i -f $SED_SCRIPT_NAME PKGBUILD; then
+    echo "Verifying correctness..."
+    makepkg --verifysource -f
 
-echo "Verifying correctness..."
-makepkg --verifysource -f
-
-if $REMOVE_TMP_DIR; then
-    echo "Removing tmp dir $TMP_DIR"
-    rm -r $TMP_DIR
-else
-    echo "Not removing tmp dir $TMP_DIR"
+    if $REMOVE_TMP_DIR; then
+        echo "Removing tmp dir $TMP_DIR"
+        rm -r $TMP_DIR
+    else
+        echo "Not removing tmp dir $TMP_DIR"
+    fi
 fi
 
 # vim: ts=4:sw=4:et
