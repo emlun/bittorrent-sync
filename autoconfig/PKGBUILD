@@ -1,0 +1,34 @@
+# Maintainer: Emil Lundberg <lundberg.emil@gmail.com> (AUR: Lorde; GitHub: emlun)
+# Contrib Repo: https://github.com/emlun/bittorrent-sync
+#
+# Contributor: Justin Patera serialhex@gmail.com
+
+pkgname=bittorrent-sync-autoconfig
+pkgver=1.0.0
+pkgrel=1
+pkgdesc="Create default config files when launching btsync@user, if necessary"
+arch=('any')
+url='https://github.com/emlun/bittorrent-sync'
+license=('GPL')
+install="${pkgname}.install"
+source=("${pkgname}.install"
+        'btsync-autoconfig@.service'
+        'btsync-makeconfig.sh'
+        'btsync-autoconfig.sh'
+        'btsync.conf.doc')
+sha256sums=('b04611f0efc9b35d118330bb0dc58758678626bcfd35445efe32cba371859e2a'
+            '1aa6edf9f36e39e9ab0f274be5fdb842e7624fce1bf9659a28153565b0278e09'
+            '6e3d9a4260824fa8077ff8fdbc4ae61f53fa702a08735018286cb52bcea49824'
+            '667607ed699f6ed7868214717b92d2f0bf10d664cebd3568b491b6d4eff7d9ad'
+            'de4f2a124d56ddbaec23535a250dbe9001606f47b74f3c3c97056107b21c7f6e')
+
+package() {
+    cd "${srcdir}"
+
+    install -D -m 644 btsync.conf.doc "${pkgdir}/usr/share/${pkgname}/btsync.conf.doc"
+    install -D -m 644 btsync-makeconfig.sh "${pkgdir}/usr/share/${pkgname}/btsync-makepkg.sh"
+    install -D -m 644 btsync-autoconfig@.service "${pkgdir}/usr/lib/systemd/system/btsync-autoconfig@.service"
+    install -D -m 644 btsync-autoconfig.sh "${pkgdir}/usr/share/${pkgname}/btsync-autoconfig.sh"
+}
+
+# vim: ts=4:sw=4:et
