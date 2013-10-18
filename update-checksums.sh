@@ -27,6 +27,7 @@ TMP_DIR="/tmp/$(basename $0)"
 mkdir -p $TMP_DIR
 TMP_PKGBUILD="$TMP_DIR/PKGBUILD.geninteg"
 SED_SCRIPT_NAME="$TMP_DIR/$0.sed"
+rm -f "$SED_SCRIPT_NAME"
 REMOVE_TMP_DIR=false
 for arg in $@; do
     case $arg in
