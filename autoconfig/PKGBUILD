@@ -16,10 +16,10 @@ source=("${pkgname}.install"
         'btsync-makeconfig.sh'
         'btsync-autoconfig.sh'
         'btsync.conf.doc')
-sha256sums=('b04611f0efc9b35d118330bb0dc58758678626bcfd35445efe32cba371859e2a'
-            '1aa6edf9f36e39e9ab0f274be5fdb842e7624fce1bf9659a28153565b0278e09'
+sha256sums=('3555bbab0e6b5619063b371bfb1fd37368ef2c76b145209e37690f5ae760074f'
+            '441a1a668bc8f6ec12ce4e149248776ede062cb0933a61c4e6ee8bd4f619be7d'
             '6e3d9a4260824fa8077ff8fdbc4ae61f53fa702a08735018286cb52bcea49824'
-            '667607ed699f6ed7868214717b92d2f0bf10d664cebd3568b491b6d4eff7d9ad'
+            'b0c7285175b389c4cdda76f07709b598405834ffa906269a80a03d2ca143dd26'
             'de4f2a124d56ddbaec23535a250dbe9001606f47b74f3c3c97056107b21c7f6e')
 
 package() {
