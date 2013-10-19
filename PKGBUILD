@@ -18,20 +18,12 @@ install="${pkgname}.install"
 source=("${pkgname}.install"
     "btsync.service"
     "btsync@.service"
-    "btsync-autoconfig@.service"
-    "btsync-makeconfig.sh"
-    "btsync-autoconfig.sh"
-    "btsync.conf.doc"
     "terms-of-use.html::http://www.bittorrent.com/legal/terms-of-use"
     "privacy-policy.html::http://www.bittorrent.com/legal/privacy"
     )
 sha256sums=('0403721e2757f44bc6ca660d95d14d4bc1c99ffad3a0fa65ac8d0ef26011c3fa'
     'c2207bd8bf6c24242d41e55b62d31cb32d764e07e71930a5a10bb4181299dfa4'
     '7420b95e0bcd8ab45be11c89a0c11e0e6c8cb4e451dd98c08eb5933fb58e7303'
-    '1aa6edf9f36e39e9ab0f274be5fdb842e7624fce1bf9659a28153565b0278e09'
-    '6e3d9a4260824fa8077ff8fdbc4ae61f53fa702a08735018286cb52bcea49824'
-    '667607ed699f6ed7868214717b92d2f0bf10d664cebd3568b491b6d4eff7d9ad'
-    'de4f2a124d56ddbaec23535a250dbe9001606f47b74f3c3c97056107b21c7f6e'
     'SKIP'
     'SKIP'
     )
@@ -65,13 +57,6 @@ package() {
 
     install -D -m 644 btsync.service "${pkgdir}/usr/lib/systemd/system/btsync.service"
     install -D -m 644 btsync@.service "${pkgdir}/usr/lib/systemd/system/btsync@.service"
-
-    # autoconfig
-    install -D -m 644 btsync.conf.doc "${pkgdir}/usr/share/${pkgname}/btsync.conf.doc"
-    install -D -m 755 btsync-makeconfig.sh "${pkgdir}/usr/share/${pkgname}/btsync-makeconfig.sh"
-    install -D -m 644 btsync-autoconfig@.service "${pkgdir}/usr/lib/systemd/system/btsync-autoconfig@.service"
-    install -D -m 755 btsync-autoconfig.sh "${pkgdir}/usr/share/${pkgname}/btsync-autoconfig.sh"
-
 }
 
 # vim: ts=4:sw=4:et
