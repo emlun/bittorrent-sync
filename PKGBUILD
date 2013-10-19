@@ -1,5 +1,5 @@
 # Maintainer: Emil Lundberg <lundberg.emil@gmail.com> (AUR: Lorde; GitHub: emlun)
-# Contrib Repo: https://github.com/emlun/bittorrent-sync
+# Contrib Repo: https://github.com/emlun/btsync-autoconfig
 #
 # Contributor: Justin Patera serialhex@gmail.com
 
@@ -8,7 +8,7 @@ pkgver=1.0.0
 pkgrel=1
 pkgdesc="Create default config files when launching btsync@user, if necessary"
 arch=('any')
-url='https://github.com/emlun/bittorrent-sync'
+url='https://github.com/emlun/btsync-autoconfig'
 license=('GPL')
 replaces=('bittorrent-sync')
 install="${pkgname}.install"
