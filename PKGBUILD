@@ -3,7 +3,7 @@
 #
 # Contributor: Justin Patera serialhex@gmail.com
 
-pkgname=bittorrent-sync-autoconfig
+pkgname=btsync-autoconfig
 pkgver=1.0.0
 pkgrel=1
 pkgdesc="Create default config files when launching btsync@user, if necessary"
