@@ -6,7 +6,7 @@ cat << EOF
   /home/alice/.config/btsync/btsync.conf with default contents, if it does not
   already exist. You may want to change the device_name, webui.login and
   webui.password settings. You can either edit the config file directly or use
-  the /usr/share/bittorrent-sync-autoconfig/btsync-makeconfig.sh script, pass it
+  the /usr/share/btsync-autoconfig/btsync-makeconfig.sh script, pass it
   the --help flag to learn more about it.
 
 EOF

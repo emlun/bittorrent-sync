@@ -1,8 +1,5 @@
-/bittorrent-sync-*.tar.xz
-/bittorrent-sync-*.src.tar.gz
-/btsync_*.tar.gz
-/privacy-policy.html
-/terms-of-use.html
-
+# Stuff built by makepkg
 /pkg/
 /src/
+/btsync-autoconfig-*.tar.xz
+/btsync-autoconfig-*.src.tar.gz

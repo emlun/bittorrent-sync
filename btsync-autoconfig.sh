@@ -8,9 +8,9 @@
 # of the first positional parameter if it exists, and
 # ~/.config/btsync/btsync.conf if it does not exist.
 #
-# The script /usr/share/bittorrent-sync-autoconfig/btsync-makeconfig.sh will be
-# used to create the config file. No arguments will be given to the
-# btsync-makeconfig.sh script.
+# The script /usr/share/btsync-autoconfig/btsync-makeconfig.sh will be used to
+# create the config file. No arguments will be given to the btsync-makeconfig.sh
+# script.
 #
 # If creation of the config file fails, the script exits with nonzero
 # exit status.
@@ -43,7 +43,7 @@ else
     logger "File $configPath does not exist - will create config file at this location"
 
     if mkdir -p $(dirname $configPath); then
-        if /bin/bash /usr/share/bittorrent-sync-autoconfig/btsync-makeconfig.sh > $configPath; then
+        if /bin/bash /usr/share/btsync-autoconfig/btsync-makeconfig.sh > $configPath; then
             logger "Config file successfully created at $configPath!"
             exit 0
         else
