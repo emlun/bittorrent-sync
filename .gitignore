@@ -1,2 +1,5 @@
+# Stuff built by makepkg
 /pkg/
 /src/
+/bittorrent-sync-autoconfig-*.tar.xz
+/bittorrent-sync-autoconfig-*.src.tar.gz
