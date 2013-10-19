@@ -1,11 +1,10 @@
 btsync-autoconfig
-===============
-
+=================
 Auto-create BitTorrent Sync config files on demand
-==================================================
-This is the source code behind the [btsync-autoconfig AUR package][aur]. It
+
+This is the source code behind the [`btsync-autoconfig` AUR package][aur]. It
 contains scripts for automatically creating config files if needed when the
-per-user btsync@user systemd service, provided by the [btsync AUR
+per-user `btsync@user` systemd service, provided by the [`btsync` AUR
 package][aur-btsync], starts.
 
 It is intended for use with [Arch Linux][arch]'s [pacman][pacman] package
@@ -23,7 +22,7 @@ Building
 Download all files in the repo except `.gitignore`, `README.md` and
 `update-checksums.sh` (or just clone the repo). Place them anywhere, for
 instance in `~/downloads/btsync-autoconfig`. Run [`makepkg`][makepkg] in that
-location, then install the built package with
+directory, then install the built package with
 `pacman -U btsync-autoconfig-VERSION.tar.xz`.
 
     $ cd ~/downloads/btsync-autoconfig
