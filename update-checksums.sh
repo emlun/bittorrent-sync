@@ -3,8 +3,7 @@
 #
 # This script runs 'makepkg -g' on a copy of PKGBUILD where all if/elif/else/fi
 # statements have been removed, and then uses sed to replace the old checksums
-# in PKGBUILD with the new ones. The original PKGBUILD is backed up to
-# PKGBUILD.bak.
+# in PKGBUILD with the new ones.
 #
 # The script assumes that all checksums in the original PKGBUILD are strings of
 # 32 or more hexadecimal characters ([0-9a-f], greedy), and that all such
@@ -28,6 +27,7 @@ TMP_DIR="/tmp/$(basename $0)"
 mkdir -p $TMP_DIR
 TMP_PKGBUILD="$TMP_DIR/PKGBUILD.geninteg"
 SED_SCRIPT_NAME="$TMP_DIR/$0.sed"
+rm -f "$SED_SCRIPT_NAME"
 REMOVE_TMP_DIR=false
 for arg in $@; do
     case $arg in
@@ -65,16 +65,16 @@ for i in ${!oldsums[@]}; do
     fi
 done
 
-sed -i.bak -f $SED_SCRIPT_NAME PKGBUILD
+if sed -i -f $SED_SCRIPT_NAME PKGBUILD; then
+    echo "Verifying correctness..."
+    makepkg --verifysource -f
 
-echo "Verifying correctness..."
-makepkg --verifysource -f
-
-if $REMOVE_TMP_DIR; then
-    echo "Removing tmp dir $TMP_DIR"
-    rm -r $TMP_DIR
-else
-    echo "Not removing tmp dir $TMP_DIR"
+    if $REMOVE_TMP_DIR; then
+        echo "Removing tmp dir $TMP_DIR"
+        rm -r $TMP_DIR
+    else
+        echo "Not removing tmp dir $TMP_DIR"
+    fi
 fi
 
 # vim: ts=4:sw=4:et
