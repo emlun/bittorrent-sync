@@ -5,13 +5,14 @@
 
 pkgname=btsync-autoconfig
 pkgver=1.1.0
-pkgrel=1
+pkgrel=2
 pkgdesc="Create default config files when launching btsync@user, if necessary"
 arch=('any')
 url='https://github.com/emlun/bittorrent-sync'
 license=('GPL')
 replaces=('bittorrent-sync')
 install="${pkgname}.install"
+changelog='changelog.txt'
 source=("${pkgname}.install"
         'btsync-autoconfig@.service'
         'btsync-makeconfig.sh'
