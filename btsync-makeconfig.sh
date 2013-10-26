@@ -91,7 +91,7 @@ OPTIONS
     --uplimit (0)
         Limit in kB/s on upload speed. 0 means no limit.
 
-    --webport (8888)
+    --webport (7889+$UID)
         The port on which the WebGUI will be available.
 
     --login (\$USER)
@@ -124,7 +124,7 @@ checkupdates=${checkupdates:-true}
 upnp=${upnp:-true}
 downlimit=${downlimit:-0}
 uplimit=${uplimit:-0}
-weblisten=0.0.0.0:${webport:-8888}
+weblisten=0.0.0.0:${webport:-$((7889+$UID))}
 login=${login:-$USER}
 password=${password:-password}
 
