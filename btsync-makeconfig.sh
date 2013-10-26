@@ -73,7 +73,7 @@ OPTIONS
         The port on which to listen for BitTorrent Sync connections. 0
         means randomize port.
 
-    --storage-path (~/.config/btsync)
+    --storage-path (~/.btsync)
         The directory to store config files and metadata, such as folder
         keys and indices, in.
 
@@ -91,7 +91,7 @@ OPTIONS
     --uplimit (0)
         Limit in kB/s on upload speed. 0 means no limit.
 
-    --webport (8888)
+    --webport (7889+$UID)
         The port on which the WebGUI will be available.
 
     --login (\$USER)
@@ -119,12 +119,12 @@ done
 ##############################
 devicename=${devicename:-$USER@$HOSTNAME}
 port=${port:-0}
-storagepath=${storagepath:-$HOME/.config/btsync}
+storagepath=${storagepath:-$HOME/.btsync}
 checkupdates=${checkupdates:-true}
 upnp=${upnp:-true}
 downlimit=${downlimit:-0}
 uplimit=${uplimit:-0}
-weblisten=0.0.0.0:${webport:-8888}
+weblisten=0.0.0.0:${webport:-$((7889+$UID))}
 login=${login:-$USER}
 password=${password:-password}
 
