@@ -12,6 +12,7 @@ url='https://github.com/emlun/bittorrent-sync'
 license=('GPL')
 replaces=('bittorrent-sync')
 install="${pkgname}.install"
+changelog='changelog.txt'
 source=("${pkgname}.install"
         'btsync-autoconfig@.service'
         'btsync-makeconfig.sh'
