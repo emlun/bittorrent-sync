@@ -12,7 +12,7 @@ install="${pkgname}.install"
 changelog='changelog.txt'
 source=("${install}"
         "${changelog}"
-        "git+https://github.com/emlun/btsync-autoconfig.git#tag=${pkgver}")
+        "git+${url}.git#tag=${pkgver}")
 md5sums=('6a1f43e5f79b8fc7dd0ec8dc5b409b4b'
          '621b38a47dd285e1030372889f671737'
          'SKIP')
