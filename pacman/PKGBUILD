@@ -2,8 +2,8 @@
 # Contributor: Justin Patera serialhex@gmail.com
 
 pkgname=btsync-autoconfig
-pkgver=1.1.0
-pkgrel=3
+pkgver=1.1.1
+pkgrel=1
 pkgdesc="Create default config files when launching btsync@user, if necessary"
 arch=('any')
 url='https://github.com/emlun/btsync-autoconfig'
@@ -22,11 +22,7 @@ sha256sums=('8e01e865795c38303202648f3ef4290787a7beb943b04244ecefd3fb822e2c65'
 
 package() {
     cd "${pkgname}"
-
-    install -D -m 644 btsync.conf.doc "${pkgdir}/usr/share/${pkgname}/btsync.conf.doc"
-    install -D -m 644 btsync-makeconfig.sh "${pkgdir}/usr/share/${pkgname}/btsync-makeconfig.sh"
-    install -D -m 644 btsync-autoconfig@.service "${pkgdir}/usr/lib/systemd/system/btsync-autoconfig@.service"
-    install -D -m 644 btsync-autoconfig.sh "${pkgdir}/usr/share/${pkgname}/btsync-autoconfig.sh"
+    make install DESTDIR="${pkgdir}" PKGNAME="${pkgname}"
 }
 
 # vim: ts=4:sw=4:et
