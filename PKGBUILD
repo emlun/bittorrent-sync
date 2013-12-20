@@ -12,7 +12,7 @@ url='https://github.com/emlun/btsync-autoconfig'
 license=('GPL')
 install="${pkgname}.install"
 changelog='changelog.txt'
-source=("${pkgname}.install"
+source=("${install}"
         'btsync-autoconfig@.service'
         'btsync-makeconfig.sh'
         'btsync-autoconfig.sh'
