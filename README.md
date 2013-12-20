@@ -19,11 +19,17 @@ manager.
 Building
 --------
 
-Download all files in the repo except `.gitignore`, `README.md` and
-`update-checksums.sh` (or just clone the repo). Place them anywhere, for
-instance in `~/downloads/btsync-autoconfig`. Run [`makepkg`][makepkg] in that
-directory, then install the built package with
-`pacman -U btsync-autoconfig-VERSION.tar.xz`.
+The project consists of only shell scripts, to there is nothing to
+compile!
+
+Packaging for pacman
+--------------------
+
+Download all files in the `pacman` directory, the rest will be
+downloaded automatically. Place them anywhere, for instance in
+`~/downloads/btsync-autoconfig`. Run [`makepkg`][makepkg] in that
+directory, then install the built package with `pacman -U
+btsync-autoconfig-VERSION.tar.xz`.
 
     $ cd ~/downloads/btsync-autoconfig
     $ makepkg
