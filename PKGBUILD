@@ -22,6 +22,14 @@ sha256sums=('8e01e865795c38303202648f3ef4290787a7beb943b04244ecefd3fb822e2c65'
             '0d7fa6ca03c258556d301b1a1f4da153392e3b08d91d830608164bd9f8ca07f2'
             'SKIP')
 
+# Download the install and changelog files from git repo
+for f in "${install}" "${changelog}"; do
+    if [[ ! -f "${f}" ]]; then
+        echo "Downloading ${f}"
+        curl -o "${f}" "https://raw.github.com/emlun/${pkgname}/${pkgver}-${pkgrel}/${f}"
+    fi
+done
+
 package() {
     cd "${pkgname}"
 
