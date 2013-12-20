@@ -1,5 +1,6 @@
 # Stuff built by makepkg
-/pkg/
-/src/
-/btsync-autoconfig-*.tar.xz
-/btsync-autoconfig-*.src.tar.gz
+pkg/
+src/
+btsync-autoconfig-*.tar.xz
+btsync-autoconfig-*.src.tar.gz
+btsync-autoconfig/
