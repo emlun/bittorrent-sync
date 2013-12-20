@@ -22,6 +22,18 @@ Building
 The project consists of only shell scripts, to there is nothing to
 compile!
 
+Installation
+------------
+
+Clone the repo (`master` or `source` branch) and use `make`:
+
+    # make install
+
+This will install files into the following directories:
+
+ - `/usr/lib/systemd/system/`
+ - `/usr/share/btsync-autoconfig`
+
 Packaging for pacman
 --------------------
 
@@ -33,7 +45,7 @@ btsync-autoconfig-VERSION.tar.xz`.
 
     $ cd ~/downloads/btsync-autoconfig
     $ makepkg
-    $ packan -U btsync-autoconfig-VERSION.tar.xs
+    # packan -U btsync-autoconfig-VERSION.tar.xs
 
 Alternatively, you can use `makepkg -i` as a shortcut combining the last two
 commands into one.
