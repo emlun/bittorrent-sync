@@ -1,6 +1,4 @@
 # Maintainer: Emil Lundberg <lundberg.emil@gmail.com> (AUR: Lorde; GitHub: emlun)
-# Contrib Repo: https://github.com/emlun/bittorrent-sync
-#
 # Contributor: Justin Patera serialhex@gmail.com
 
 pkgname=btsync-autoconfig
