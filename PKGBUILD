@@ -18,6 +18,12 @@ source=("${install}"
         'btsync-makeconfig.sh'
         'btsync-autoconfig.sh'
         'btsync.conf.doc')
+md5sums=('6a1f43e5f79b8fc7dd0ec8dc5b409b4b'
+         '621b38a47dd285e1030372889f671737'
+         'af90efc8c35143ff2097ee9251048ec3'
+         'f6087e2c4c0ee06ff3e2f96b8f32b0a7'
+         '9236f40c9978cb5ae533acd0a6a1c72b'
+         'ea66d84ac64f0c54d7f607a2e7bffdd5')
 sha256sums=('8e01e865795c38303202648f3ef4290787a7beb943b04244ecefd3fb822e2c65'
             '0d7fa6ca03c258556d301b1a1f4da153392e3b08d91d830608164bd9f8ca07f2'
             '23e98ca6cc14157ba14b2c408417c82aa6deda823667e5ba2500a2b48d28e404'
