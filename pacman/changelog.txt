@@ -12,5 +12,3 @@
 - Change default WebGUI port to 7889+$UID
   - Instead of the static 8888, so that the defaults don't collide for multiple
     users
-
-# vim: tw=80
