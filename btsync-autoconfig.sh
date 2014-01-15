@@ -1,4 +1,21 @@
 #!/bin/bash
+# This file is part of btsync-autoconfig.
+#
+# btsync-autoconfig is free software: you can redistribute it and/or modify it
+# under the terms of the GNU General Public License as published by the Free
+# Software Foundation, either version 3 of the License, or (at your option) any
+# later version.
+#
+# btsync-autoconfig is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+# FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+# details.
+#
+# You should have received a copy of the GNU General Public License along with
+# btsync-autoconfig.  If not, see <http://www.gnu.org/licenses/>.
+#
+# =======================================
+#
 # Author: Emil Lundberg <lundberg.emil@gmail.com>
 #
 # Checks if the named config file exists, and creates it if necessary.
@@ -55,5 +72,3 @@ else
         exit 1
     fi
 fi
-
-# vim: ts=4:sw=4:et
