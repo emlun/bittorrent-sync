@@ -130,13 +130,6 @@ password=${password:-password}
 
 
 ##############################
-# COMMENT HEADER
-##############################
-# Include the documentation comment from btsync.conf.doc
-
-cat $(dirname $0)/btsync.conf.doc
-
-##############################
 # REPLACEMENT
 ##############################
 # String parameter values in the LHS are surrounded with "s and searched for as such
