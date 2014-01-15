@@ -51,3 +51,11 @@ Alternatively, you can use `makepkg -i` as a shortcut combining the last two
 commands into one.
 
 [makepkg]: https://wiki.archlinux.org/index.php/Makepkg
+
+License
+-------
+
+btsync-autoconfig is licensed under the [GNU General Public License][gpl-home],
+version 2 or later.
+
+[gpl-home]: http://www.gnu.org/licenses/
