@@ -76,5 +76,3 @@ if sed -i -f $SED_SCRIPT_NAME PKGBUILD; then
         echo "Not removing tmp dir $TMP_DIR"
     fi
 fi
-
-# vim: ts=4:sw=4:et
