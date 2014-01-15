@@ -1,4 +1,20 @@
 #!/bin/bash
+# This file is part of btsync-autoconfig.
+#
+# btsync-autoconfig is free software: you can redistribute it and/or modify it
+# under the terms of the GNU General Public License as published by the Free
+# Software Foundation, either version 3 of the License, or (at your option) any
+# later version.
+#
+# btsync-autoconfig is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+# FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
+# details.
+#
+# You should have received a copy of the GNU General Public License along with
+# btsync-autoconfig.  If not, see <http://www.gnu.org/licenses/>.
+#
+# ================================
 #
 # Generate a default BitTorrent Sync config file for the current user.
 # The config file is written to standard out.
@@ -130,13 +146,6 @@ password=${password:-password}
 
 
 ##############################
-# COMMENT HEADER
-##############################
-# Include the documentation comment from btsync.conf.doc
-
-cat $(dirname $0)/btsync.conf.doc
-
-##############################
 # REPLACEMENT
 ##############################
 # String parameter values in the LHS are surrounded with "s and searched for as such
@@ -152,5 +161,3 @@ btsync --dump-sample-config \
     | sed 's#"listen" *: *[^,]*#"listen" : "'$weblisten'"#g' \
     | sed 's#"login" *: *"[^"]*"#"login" : "'$login'"#g' \
     | sed 's#"password" *: *"[^"]*"#"password" : "'$password'"#g'
-
-# vim: ts=4:sw=4:et
