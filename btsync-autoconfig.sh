@@ -39,6 +39,8 @@
 #   2 The config file did not exist, its parent directory did exist or
 #     was successfully created, and the script failed to create the
 #     file.
+#   3 The storage_path setting in the config file is nonempty, the specified
+#     directory does not exist and the script failed to create it.
 
 logger "$0 starting"
 
@@ -54,15 +56,13 @@ fi
 
 # Create config file if necessary
 if [[ -f $configPath ]]; then
-    logger "Config file $configPath already exists - nothing to do!"
-    exit 0
+    logger "Config file $configPath already exists"
 else
     logger "File $configPath does not exist - will create config file at this location"
 
     if mkdir -p $(dirname $configPath); then
         if /bin/bash /usr/share/btsync-autoconfig/btsync-makeconfig.sh > $configPath; then
             logger "Config file successfully created at $configPath!"
-            exit 0
         else
             logger "Could not create config at $configPath - exiting"
             exit 2
@@ -70,5 +70,19 @@ else
     else
         logger "Could not create directory $(dirname $configPath) - exiting"
         exit 1
+    fi
+fi
+
+# Create storage directory if necessary
+storagePath=$(grep -E '"storage_path"\s*:' "$configPath" | cut -d : -f 2- | grep -oE '"[^"]*"' | grep -oE '[^"]*')
+if [[ -d "$storagePath" ]]; then
+    logger "Storage directory ${storagePath} already exists"
+elif [[ -n "$storagePath" ]]; then
+    logger "Storage directory ${storagePath} does not exist - will create it"
+    if mkdir -p "$storagePath"; then
+        logger "Storage directory ${storagePath} created successfully"
+    else
+        logger "Failed to create storage directory ${storagePath}"
+        exit 3
     fi
 fi
