@@ -1,0 +1,7 @@
+[Unit]
+Description=On-demand BitTorrent Sync config creator for %u
+Before=btsync.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/share/btsync-autoconfig/btsync-autoconfig.sh
