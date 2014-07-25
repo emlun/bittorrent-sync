@@ -13,9 +13,9 @@ makedepends=('git')
 install="${pkgname}.install"
 source=("${install}"
         "git+${url}.git#tag=${pkgver}")
-md5sums=('eabf48a1092829ea7b8d4e8d99e6d8f7'
+md5sums=('b7ee5f7a63e271594b34d9137f7fb1c3'
          'SKIP')
-sha256sums=('7423d2a0e8bdc55a5f026dbae2cdd8a5da21797eab7e4aff266ab82416ccf679'
+sha256sums=('86b498824f9a69568d6b4b3de8f7b614ca311532d90fdab3ddd42eda36286ca7'
             'SKIP')
 
 package() {
