@@ -10,11 +10,13 @@ package][aur-btsync], starts.
 It is intended for use with [Arch Linux][arch]'s [pacman][pacman] package
 manager.
 
+
 Building
 --------
 
 The project consists of only shell scripts, to there is nothing to
 compile!
+
 
 Installation
 ------------
@@ -31,6 +33,7 @@ This will install files into the following directories:
 Finally, enable the service:
 
     # systemctl --global enable btsync-autoconfig.service
+
 
 Packaging for pacman
 --------------------
