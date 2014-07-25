@@ -25,8 +25,12 @@ Clone the repo (`master` or `source` branch) and use `make`:
 
 This will install files into the following directories:
 
- - `/usr/lib/systemd/system/`
+ - `/usr/lib/systemd/user/`
  - `/usr/share/btsync-autoconfig`
+
+Finally, enable the service:
+
+    # systemctl --global enable btsync-autoconfig.service
 
 Packaging for pacman
 --------------------
