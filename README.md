@@ -33,11 +33,14 @@ Finally, enable the service:
 Packaging for pacman
 --------------------
 
-Download all files in the `pacman` directory, the rest will be
-downloaded automatically. Place them anywhere, for instance in
-`~/downloads/btsync-autoconfig`. Run [`makepkg`][makepkg] in that
-directory, then install the built package with `pacman -U
-btsync-autoconfig-VERSION.tar.xz`.
+btsync-autoconfig is [available from the AUR][aur]. BitTorrent Sync with systemd
+service definitions is provided by the [`btsync` AUR package][aur-btsync].
+
+You can also easily build the package yourself: Download all files in the
+`pacman` directory, the rest will be downloaded automatically. Place them
+anywhere, for instance in `~/downloads/btsync-autoconfig`. Run
+[`makepkg`][makepkg] in that directory, then install the built package with
+`pacman -U btsync-autoconfig-VERSION.tar.xz`.
 
     $ cd ~/downloads/btsync-autoconfig
     $ makepkg
