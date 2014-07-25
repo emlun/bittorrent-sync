@@ -2,7 +2,7 @@
 # Contributor: Justin Patera serialhex@gmail.com
 
 pkgname=btsync-autoconfig
-pkgver=1.4.0
+pkgver=2.0.0
 pkgrel=1
 pkgdesc="Create default config files when users launch btsync, if necessary"
 arch=('any')
