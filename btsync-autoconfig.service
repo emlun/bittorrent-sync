@@ -5,3 +5,6 @@ Before=btsync.service
 [Service]
 Type=oneshot
 ExecStart=/usr/share/btsync-autoconfig/btsync-autoconfig.sh
+
+[Install]
+WantedBy=btsync.service
