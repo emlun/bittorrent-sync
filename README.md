@@ -1,14 +1,9 @@
 btsync-autoconfig
 =================
-Auto-create BitTorrent Sync config files on demand
+Auto-create [BitTorrent Sync][btsync] config files on demand
 
-This is the source code behind the [`btsync-autoconfig` AUR package][aur]. It
-contains scripts for automatically creating config files if needed when the
-per-user `btsync@user` systemd service, provided by the [`btsync` AUR
-package][aur-btsync], starts.
-
-It is intended for use with [Arch Linux][arch]'s [pacman][pacman] package
-manager.
+This repository contains systemd service scripts for automatically creating
+config files if needed when the `btsync` user service starts.
 
 
 Building
